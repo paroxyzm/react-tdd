@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {itemsFetchData} from '../actions/items';
+import {asyncDispatch} from "../actions/bitcoin";
 
 class ItemList extends Component {
     render() {
@@ -11,13 +12,21 @@ class ItemList extends Component {
             return <p>Loading…</p>;
         }
         return (
-            <ul>
-                {this.props.items.map((item) => (
-                    <li key={item.id}>
-                        {item.label}
-                    </li>
-                ))}
-            </ul>
+            <>
+                <ul>
+                    {this.props.items.map((item) => (
+                        <li key={item.id}>
+                            {item.label}
+                        </li>
+                    ))}
+                </ul>
+                <div>
+                    <button onClick={() => this.props.asyncDispatch()}>Another fetch - async</button>
+                </div>
+                <div>
+                    {JSON.stringify(this.props.bitcoinPrice)}
+                </div>
+            </>
         );
     }
 
@@ -30,12 +39,14 @@ const mapStateToProps = (state) => {
     return {
         items: state.items,
         hasErrored: state.itemsHasErrored,
-        isLoading: state.itemsIsLoading
+        isLoading: state.itemsIsLoading,
+        bitcoinPrice: state.bitcoinPrice,
     };
 };
 const mapDispatchToProps = (dispatch) => {
         return {
-            fetchData: (url) => dispatch(itemsFetchData(url))
+            fetchData: (url) => dispatch(itemsFetchData(url)),
+            asyncDispatch: () => dispatch(asyncDispatch())
         };
     }
 ;

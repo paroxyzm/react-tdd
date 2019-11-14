@@ -32,5 +32,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "fetch-mock": "^7.7.3",
+    "node-fetch": "^2.6.0",
+    "redux-mock-store": "^1.5.3"
   }
 }
