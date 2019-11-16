@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {itemsFetchData} from '../actions/items';
-import {asyncDispatch} from "../actions/bitcoin";
+import {fetchBitcoin} from "../actions/bitcoin";
 
 class ItemList extends Component {
     render() {
@@ -21,7 +21,7 @@ class ItemList extends Component {
                     ))}
                 </ul>
                 <div>
-                    <button onClick={() => this.props.asyncDispatch()}>Another fetch - async</button>
+                    <button onClick={() => this.props.fetchBitcoin()}>Another fetch - async</button>
                 </div>
                 <div>
                     {JSON.stringify(this.props.bitcoinPrice)}
@@ -46,7 +46,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
         return {
             fetchData: (url) => dispatch(itemsFetchData(url)),
-            asyncDispatch: () => dispatch(asyncDispatch())
+            fetchBitcoin: () => dispatch(fetchBitcoin())
         };
     }
 ;
