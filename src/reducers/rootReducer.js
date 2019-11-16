@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux';
 import {items, itemsHasErrored, itemsIsLoading} from './items';
-import {bitcoinPrice} from "./bitcoin";
+import bitcoin from "./bitcoin";
+import balance from "./balance";
 
 export default combineReducers({
     items,
     itemsHasErrored,
     itemsIsLoading,
-    bitcoinPrice,
+    bitcoin,
+    balance
 });
