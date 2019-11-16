@@ -12,9 +12,9 @@ export class Loot extends React.Component {
         );
     }
 
-    componentDidMount() {
+    componentDidMount = () => {
         this.props.fetchBitcoin();
-    }
+    };
 
     calculateBitcoinBalance() {
         return '0.01';

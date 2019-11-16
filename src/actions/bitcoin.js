@@ -1,7 +1,6 @@
 import {coinDeskUri, FETCH_BITCOIN, FETCH_BITCOIN_ERROR} from "../constants";
 
 export function fetchBitcoin() {
-
     return (dispatch) => {
         const helper = async () =>
             fetch(coinDeskUri)

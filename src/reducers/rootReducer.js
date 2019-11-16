@@ -8,5 +8,5 @@ export default combineReducers({
     itemsHasErrored,
     itemsIsLoading,
     bitcoin,
-    balance
+    balance,
 });
